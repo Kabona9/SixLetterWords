@@ -3,4 +3,5 @@
 using LetterWord.Services;
 
 var sixLetterWordService = new LetterWordService(6);
+//sixLetterWordService.RunCode("input.txt");
 sixLetterWordService.RunCode("input2.txt");
