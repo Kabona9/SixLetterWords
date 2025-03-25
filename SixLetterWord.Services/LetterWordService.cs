@@ -72,9 +72,8 @@
 
             foreach (var word in words)
             {
-                //check to see if a word is not used more than allowed in the list of words
-                //slow
-                if (current.Count(w => w == word) < words.Count(w => w == word))
+                //check to see if a word is not yet uses                 
+                if (!current.Any(w => w == word))
                 {
                     current.Add(word);
                     FindCombinations(words, current, results, listOfCandidates, currentWord + word);
