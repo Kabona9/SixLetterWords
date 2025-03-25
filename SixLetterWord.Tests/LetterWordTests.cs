@@ -9,8 +9,8 @@ namespace LetterWord.Tests
         {
             // Arrange
             var sixLetterWordService = new LetterWordService(6);
-            var words = new List<string> { "foobar", "fo", "obar", "f", "oobar" };
-            var validWords = new List<string> { "foobaa", "boofaa" };
+            var words = new HashSet<string> { "foobar", "fo", "obar", "f", "oobar" };
+            var validWords = new HashSet<string> { "foobaa", "boofaa" };
 
             // Act
             var result = sixLetterWordService.FindValidCombinations(words, validWords);
@@ -24,8 +24,8 @@ namespace LetterWord.Tests
         {
             // Arrange
             var sixLetterWordService = new LetterWordService(6);
-            var words = new List<string> { "foobar", "fo", "obar", "f", "oobar" };
-            var validWords = new List<string> { "foobar" };
+            var words = new HashSet<string> { "foobar", "fo", "obar", "f", "oobar" };
+            var validWords = new HashSet<string> { "foobar" };
 
             // Act
             var result = sixLetterWordService.FindValidCombinations(words, validWords);
@@ -33,7 +33,7 @@ namespace LetterWord.Tests
             // Assert
             Assert.Contains(["fo", "obar"], result);
             Assert.Contains(["f", "oobar"], result);
-            Assert.Equal(2, result.Count); 
+            Assert.Equal(2, result.Count);
         }
 
         [Fact]
@@ -41,14 +41,14 @@ namespace LetterWord.Tests
         {
             // Arrange
             var sixLetterWordService = new LetterWordService(6);
-            var words = new List<string> { "foobar", "fo", "o", "bar", "f", "ooba" };
-            var validWords = new List<string> { "foobar" };
+            var words = new HashSet<string> { "foobar", "fo", "o", "bar", "f", "ooba" };
+            var validWords = new HashSet<string> { "foobar" };
 
             // Act
             var result = sixLetterWordService.FindValidCombinations(words, validWords);
 
             // Assert
-            Assert.Contains(["fo", "o", "bar"], result);            
+            Assert.Contains(["fo", "o", "bar"], result);
             Assert.Single(result);
         }
     }
